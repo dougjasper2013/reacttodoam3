@@ -35,12 +35,14 @@ function App() {
     }
   }
 
-  const toggleTodo = (todo) => ({ todoItems:
-    todoItems.map(item => item.action === todo.action
-      ? { ...item, done: !item.done } : item
-    )
-  });
-
+  const toggleTodo = (todo) => {
+    setTodoItems(todoItems.map(item =>
+      item.action === todo.action
+        ? { ...item, done: !item.done }
+        : item
+    ));
+  };
+  
   const todoTableRows = () => todoItems.map(item =>
     <tr key={ item.action}>
       <td>{ item.action }</td>
